@@ -1,0 +1,9 @@
+#!/bin/bash
+set -v
+# last edited 30 sept 2016
+
+curl http://192.168.0.31/relay/on
+
+sleep 60m
+
+curl http://192.168.0.31/relay/off

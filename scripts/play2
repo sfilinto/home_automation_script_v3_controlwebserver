@@ -1,0 +1,5 @@
+#!/bin/bash
+set -v
+# last edited 30 sept 2016
+curl http://192.168.0.33/relay/on
+xbmc-send -a "PlayMedia(/home/osmc/Videos/play/)"

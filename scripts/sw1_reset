@@ -1,0 +1,6 @@
+#!/bin/bash
+# last edited 30 sept 2016
+# kill batch file sw1_1h & then toggle the lights
+pkill sw1_1h
+
+curl http://192.168.0.31/relay/off

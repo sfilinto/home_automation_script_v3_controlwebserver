@@ -1,0 +1,6 @@
+#!/bin/bash
+set -v
+# last edited 30 sept 2016
+xbmc-send -a "PlayerControl(Previous)"
+
+

@@ -1,0 +1,26 @@
+#!/bin/bash
+# last edited 30 sept 2016
+
+createServers() {
+	nohup /usr/local/bin/controlws/ws80.py&
+  if [[ $? -eq 0 ]]; then
+    echo gpio-services to jumpbox created successfully
+  else
+    echo An error occurred creating a gpio-services to jumpbox. RC was $?
+  fi
+}
+
+
+sleep 5
+echo GPIO Dragon Services Activated
+COUNT=`ps aux|grep 80|grep -v grep|grep py`
+
+
+if [[ $COUNT -le 1 ]]; then
+  echo Creating new gpio-services connection
+  createServers
+  echo Created new gpio-services connection at `date`>> /tmp/gpio_status
+else
+	echo gpio-services already exists
+fi
+
