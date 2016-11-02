@@ -1,3 +1,7 @@
+# 2 November 2016 Update
+Added support for a buzzer on GPIO 18 for a audiable indication once geyser is turned off. Disabled the audio alarm via the music system.
+Replaced apt-get upgrade with apt-get dist-upgrade
+
 # 30 September 2016
 This repository contains the source code of the latest iteration of my Control Web Server (ControlWS or CWS) which i use on a raspberry Pi running the latest version of OSMC as on date.
 

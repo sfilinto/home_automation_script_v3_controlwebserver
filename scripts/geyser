@@ -1,6 +1,6 @@
 #!/bin/bash
 set -v
-# last edited 30 sept 2016
+# last edited 2 November 2016
 
 curl http://192.168.0.41/relay/on
 
@@ -8,10 +8,4 @@ sleep 5m
 
 curl http://192.168.0.41/relay/off
 
-curl http://192.168.0.33/relay/on
-sleep 10s
-xbmc-send -a "PlayMedia(/usr/local/bin/controlws/scripts/geyser.mp3)"
-xbmc-send -a "PlayMedia(/usr/local/bin/controlws/scripts/geyser.mp3)"
-xbmc-send -a "PlayMedia(/usr/local/bin/controlws/scripts/geyser.mp3)"
-sleep 10s
-curl http://192.168.0.33/relay/off
+sudo python /usr/local/bin/controlws/scripts/buzz.py

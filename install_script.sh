@@ -1,5 +1,8 @@
 #!/bin/bash -vx
-# last edited 30 sept 2016
+# last edited 2st November 2016
+# added support for a buzzer on GPIO 18 for a audiable indication once geyser is turned off. Disabled the audio alarm via the music system.
+# Replaced apt-get upgrade with apt-get dist-upgrade
+
 # This install script will install the control web server & copy all source files to the requisite folders after creating them.
 
 # sudo apt-get install git-core -y
@@ -14,7 +17,8 @@
 ###############################################################################################################
 
 apt-get update -y
-apt-get upgrade -y
+apt-get dist-upgrade -y
+# apt-get upgrade -y
 
 #install pip & flask ( web server )
 apt-get install python-pip -y
@@ -25,9 +29,12 @@ apt-get install tmux -y
 apt-get install mc -y
 # Install samba from the store
 apt-get install smb-app-osmc -y
-#crontab from the store
+# crontab from the store
 apt-get install cron-app-osmc -y
-
+# Python
+apt-get install gcc python-dev python-pip i2c-tools libi2c-dev python-smbus -y
+# GPIO
+pip install RPi.GPIO
 ###############################################################################################################
 
 mkdir /usr/local/bin/controlws
@@ -40,6 +47,7 @@ cp -r scripts /usr/local/bin/controlws/
 chmod a+x /usr/local/bin/controlws/startws
 chmod a+x /usr/local/bin/controlws/ws80.py
 chmod a+x /usr/local/bin/controlws/scripts/geyser
+chmod a+x /usr/local/bin/controlws/scripts/buzz.py
 chmod a+x /usr/local/bin/controlws/scripts/next
 chmod a+x /usr/local/bin/controlws/scripts/play1
 chmod a+x /usr/local/bin/controlws/scripts/play2
